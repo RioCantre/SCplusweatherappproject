@@ -1,0 +1,65 @@
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.container {
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 900px;
+}
+.order-last {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+  margin-right: 4rem;
+  margin-left: 2rem;
+}
+h1 {
+  color: blue;
+  font-size: 49px;
+  padding-bottom: 2rem;
+  font-weight: bold;
+}
+.today,
+.description {
+  font-size: 24px;
+  font-weight: bold;
+}
+.today-datetime,
+.today-temp {
+  font-size: 20px;
+}
+.main-description {
+  width: 160px;
+  margin: 1rem 0;
+}
+
+#days {
+  border-right: 1px orange solid;
+  margin: 4.5rem 2rem 4.5rem 2rem;
+}
+
+.weekname {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+.outcome {
+  margin-top: 0.5rem;
+  margin-left: 4rem;
+  width: 34px;
+}
+span {
+  font-size: 14px;
+}
+form {
+  margin-top: 2.5rem;
+  margin-right: 4rem;
+  margin-left: 1rem;
+}
