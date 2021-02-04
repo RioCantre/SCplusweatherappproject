@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FirstDraft</title>
+    <meta charset="UTF-8" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="src/styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row gx-1">
+            <div class="col-6 order-last">
+                <h1 id="Main-city">Barcelona, Spain</h1>
+                <h3 class="today">Wednesday</h3>
+                <p class="today-datetime">
+                    20:30
+                </p>
+
+                <h3 class="description">Partly Cloudy</h3>
+                <p class="today-temp">9° / 3°</p>
+                <br />
+                <img class="main-description" src="https://img.icons8.com/wired/100/000000/partly-cloudy-day.png" />
+                <form class="input-group">
+                    <input id="city-input" type="text" class="form-control" placeholder="Enter a city" />
+
+                    <button class="btn btn-info" type="submit" id="search-input">
+                        Search
+                    </button>
+                    <button class="btn btn-info" type="button" id="current-input">
+                        Current
+                    </button>
+                </form>
+            </div>
+            <div class="col-4 order-first">
+                <div id="days">
+                    <section>
+                        <h3 class="weekname">Thursday</h3>
+                        <img class="outcome" src="https://img.icons8.com/wired/64/000000/clouds.png" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span> 9° / 3° </span>
+                    </section>
+                    <section>
+                        <h3 class="weekname">Friday</h3>
+                        <img class="outcome" src="https://img.icons8.com/wired/64/000000/clouds.png" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span> 9° / 5° </span>
+                    </section>
+                    <section>
+                        <h3 class="weekname">Saturday</h3>
+                        <img class="outcome" src="https://img.icons8.com/wired/64/000000/rain.png" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span> 9° / 4° </span>
+                    </section>
+                    <section>
+                        <h3 class="weekname">Sunday</h3>
+                        <img class="outcome" src="https://img.icons8.com/wired/64/000000/rain.png" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span> 8° / 3° </span>
+                    </section>
+                    <section>
+                        <h3 class="weekname">Monday</h3>
+                        <img class="outcome" src="https://img.icons8.com/wired/64/000000/rain.png" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span> 8° / 1° </span>
+                    </section>
+                    <section>
+                        <h3 class="weekname">Tuesday</h3>
+                        <img class="outcome" src="https://img.icons8.com/wired/64/000000/sun.png" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span> 9° / 1° </span>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="src/index.js"></script>
+</body>
+
+</html>
