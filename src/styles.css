@@ -74,3 +74,7 @@ a {
 a:hover {
   color: #f6d365;
 }
+span {
+  font-family: "Sacramento", cursive;
+  font-size: 19px;
+}
