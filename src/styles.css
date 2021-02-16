@@ -73,6 +73,14 @@ h1 {
   color: #5c095a;
   font-family: "Montserrat", sans-serif;
 }
+.cel-unit {
+  color: #5c095a;
+}
+
+.fah-unit {
+  color: #5c095a;
+}
+
 .main-description {
   width: 200px;
 }
@@ -88,7 +96,8 @@ h1 {
 }
 
 form {
-  padding-bottom: 16px;
+  padding-top: 25px;
+  padding-bottom: 10px;
 }
 
 #city-input {
@@ -104,14 +113,27 @@ form {
   transition: all 200ms ease;
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
+  width: 80px;
+  text-align: center;
 }
 #search-input:hover {
   color: #e7c120;
   background: #1e0b44;
 }
+#current-input {
+  background: #68987f;
+  width: 45px;
+  margin-left: 4px;
+  border-radius: 20px;
+  color: #1e0b44;
+}
+#current-input:hover {
+  color: #e7c120;
+  background: #1e0b44;
+}
 
 .order-first {
-  margin: 20px 14px;
+  margin: 20px 14px 20px 12px;
   padding-bottom: 10px;
 }
 #days {
@@ -123,35 +145,37 @@ form {
   font-size: 16px;
   font-weight: bold;
   margin-top: 20px;
+  margin-bottom: 10px;
   font-family: "Montserrat", sans-serif;
   color: #1e0b44;
 }
 .outcome {
-  margin-top: 5px;
-  margin-left: 40px;
-  width: 34px;
+  margin-left: 50px;
+  width: 36px;
 }
 .degree {
   font-size: 12px;
   color: #371560;
   font-family: "Montserrat", sans-serif;
+  text-align: center;
 }
 
 .bottom-text {
   text-align: center;
-  font-size: 16px;
+  font-size: 10px;
   color: #68987f;
   padding-top: 10px;
 }
 a {
   text-decoration: none;
   transition: all 200ms ease;
+  color: #371560;
 }
 a:hover {
-  color: #f6d365;
+  color: #e7c120;
 }
 .name {
-  font-size: 16px;
+  font-size: 10px;
   color: #1e0b44;
   font-family: "Montserrat", sans-serif;
 }
