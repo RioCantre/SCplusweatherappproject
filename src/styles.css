@@ -73,10 +73,7 @@ h1 {
   color: #5c095a;
   font-family: "Montserrat", sans-serif;
 }
-.cel-unit {
-  color: #5c095a;
-}
-
+.cel-unit,
 .fah-unit {
   color: #5c095a;
 }
@@ -116,17 +113,15 @@ form {
   width: 80px;
   text-align: center;
 }
-#search-input:hover {
-  color: #e7c120;
-  background: #1e0b44;
-}
 #current-input {
   background: #68987f;
   width: 45px;
   margin-left: 4px;
   border-radius: 20px;
   color: #1e0b44;
+  transition: all 200ms ease;
 }
+#search-input:hover,
 #current-input:hover {
   color: #e7c120;
   background: #1e0b44;
