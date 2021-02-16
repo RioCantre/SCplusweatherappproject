@@ -11,7 +11,7 @@ let weekdays = [
   "Saturday"
 ];
 let weekday = weekdays[now.getDay()];
-let nowToday = document.querySelector(".day");
+let nowToday = document.querySelector(".day-name");
 nowToday.innerHTML = `${weekday}`;
 let time = document.querySelector(".today-datetime");
 time.innerHTML = `${hours}:${minutes}`;
@@ -33,7 +33,7 @@ function citySearch(currentCity) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(weatherToday);
 }
-citySearch("Barcelona");
+citySearch("New York");
 
 function weatherToday(response) {
   let currentCity = response.data.name;
