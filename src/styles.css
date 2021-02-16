@@ -3,8 +3,7 @@ body {
 }
 
 .container {
-  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-  background-attachment: fixed;
+  background-image: url(/image/bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 25px;
@@ -44,10 +43,16 @@ form {
 }
 #city-input {
   width: 150px;
+  border-radius: 20px;
 }
 #search-input {
   background: #fda085;
   margin-left: 3px;
+  border-radius: 20px;
+  transition: all 200ms ease;
+}
+#search-input:hover {
+  color: #d45c7f;
 }
 
 .order-first {
