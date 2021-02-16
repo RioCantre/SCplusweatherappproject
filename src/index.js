@@ -33,7 +33,7 @@ function citySearch(currentCity) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${currentCity}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(weatherToday);
 }
-citySearch("New York");
+// citySearch("New York");
 
 function weatherToday(response) {
   let currentCity = response.data.name;
