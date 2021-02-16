@@ -39,6 +39,7 @@ function weatherToday(response) {
   let currentCity = response.data.name;
   let searchCity = document.querySelector("#Main-city");
   searchCity.innerHTML = currentCity;
+  
 
   let description = response.data.weather[0].main;
   let searchCityDesc = document.querySelector(".description");

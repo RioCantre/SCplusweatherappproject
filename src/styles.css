@@ -1,7 +1,3 @@
-body {
-  font-family: Georgia, "Times New Roman", Times, serif;
-}
-
 .container {
   background-image: url(/image/bg.png);
   background-repeat: no-repeat;
@@ -10,63 +6,100 @@ body {
   margin-top: 6%;
   max-width: 650px;
   max-height: 650px;
+  padding: 20px 10px;
 }
 
 .order-last {
   text-align: center;
-  margin: 18px 10px;
+  margin: 20px 18px;
+  font-weight: bold;
 }
 
 h1 {
-  color: blue;
-  font-size: 33px;
-  padding-top: 24px;
+  color: #1e0b44;
+  font-size: 36px;
+  padding-top: 30px;
   padding-bottom: 10px;
   font-weight: bold;
-}
-.day,
-.description {
-  font-size: 19px;
-  font-weight: bold;
-}
-.today-datetime,
-.today-temp {
-  font-size: 17px;
-}
-.main-description {
-  width: 160px;
-  margin: 10px 10px;
+  font-family: "Gravitas One", cursive;
 }
 
-form {
-  padding: 20px 20px;
+#float-r {
+  float: right;
+  width: 35%;
+  padding: 30px 5px;
 }
+
+#float-l img {
+  float: left;
+  display: block;
+  width: 70%;
+}
+
+ul li {
+  list-style: none;
+}
+.day-name {
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  line-height: 30px;
+}
+
+.today-datetime {
+  font-size: 15px;
+}
+
+.quote {
+  font-size: 13px;
+  line-height: 5px;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+}
+.today-temp {
+  font-size: 26px;
+  font-family: "Gravitas One", cursive;
+}
+.unit {
+  font-size: 11px;
+}
+.main-description {
+  width: 200px;
+}
+.other-info {
+  font-size: 10px;
+  padding-right: 20px;
+}
+
 #city-input {
   width: 150px;
   border-radius: 20px;
 }
 #search-input {
-  background: #fda085;
+  background: #68987f;
+  color: #1e0b44;
   margin-left: 3px;
   border-radius: 20px;
   transition: all 200ms ease;
 }
 #search-input:hover {
-  color: #d45c7f;
+  color: #e7c120;
+  background: #1e0b44;
 }
 
 .order-first {
-  margin: 14px 18px;
+  margin: 20px 14px;
 }
 #days {
-  border-right: 1px orange solid;
+  border-right: 1px #68987f solid;
 }
 
 .weekname {
   text-align: center;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
   margin-top: 20px;
+  font-family: "Montserrat", sans-serif;
 }
 .outcome {
   margin-top: 5px;
@@ -74,7 +107,8 @@ form {
   width: 34px;
 }
 .degree {
-  font-size: 14px;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .bottom-text {
@@ -88,7 +122,7 @@ a {
 a:hover {
   color: #f6d365;
 }
-span {
-  font-family: "Sacramento", cursive;
+.name {
+  font-family: "Dancing Script", cursive;
   font-size: 19px;
 }
