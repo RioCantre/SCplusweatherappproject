@@ -7,62 +7,71 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: cover;
-  border-radius: 4px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 900px;
+  border-radius: 25px;
+  margin-top: 6%;
+  max-width: 650px;
+  max-height: 650px;
 }
+
 .order-last {
   text-align: center;
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-  margin-right: 4rem;
-  margin-left: 2rem;
+  margin: 18px 10px;
 }
+
 h1 {
   color: blue;
-  font-size: 49px;
-  padding-bottom: 2rem;
+  font-size: 33px;
+  padding-top: 24px;
+  padding-bottom: 10px;
   font-weight: bold;
 }
-.today,
+.day,
 .description {
-  font-size: 24px;
+  font-size: 19px;
   font-weight: bold;
 }
 .today-datetime,
 .today-temp {
-  font-size: 20px;
+  font-size: 17px;
 }
 .main-description {
   width: 160px;
-  margin: 1rem 0;
+  margin: 10px 10px;
 }
 
+form {
+  padding: 20px 20px;
+}
+#city-input {
+  width: 150px;
+}
+#search-input {
+  background: #fda085;
+  margin-left: 3px;
+}
+
+.order-first {
+  margin: 14px 18px;
+}
 #days {
   border-right: 1px orange solid;
-  margin: 4.5rem 2rem 4.5rem 2rem;
 }
 
 .weekname {
   text-align: center;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: bold;
-  margin-top: 2rem;
+  margin-top: 20px;
 }
 .outcome {
-  margin-top: 0.5rem;
-  margin-left: 4rem;
+  margin-top: 5px;
+  margin-left: 40px;
   width: 34px;
 }
 .degree {
   font-size: 14px;
 }
-form {
-  margin-top: 2.5rem;
-  margin-right: 4rem;
-  margin-left: 1rem;
-}
+
 .bottom-text {
   text-align: center;
   font-size: 16px;

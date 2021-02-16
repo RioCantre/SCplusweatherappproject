@@ -11,7 +11,7 @@ let weekdays = [
   "Saturday"
 ];
 let weekday = weekdays[now.getDay()];
-let nowToday = document.querySelector(".today");
+let nowToday = document.querySelector(".day");
 nowToday.innerHTML = `${weekday}`;
 let time = document.querySelector(".today-datetime");
 time.innerHTML = `${hours}:${minutes}`;
