@@ -1,9 +1,13 @@
+body {
+  font-family: "Raleway", sans-serif;
+}
+
 .container {
   background-image: url(/image/bg.png);
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 25px;
-  margin-top: 6%;
+  margin-top: 4%;
   max-width: 650px;
   max-height: 650px;
   padding: 20px 10px;
@@ -18,7 +22,7 @@
 h1 {
   color: #1e0b44;
   font-size: 36px;
-  padding-top: 30px;
+  padding-top: 50px;
   padding-bottom: 10px;
   font-weight: bold;
   font-family: "Gravitas One", cursive;
@@ -27,60 +31,79 @@ h1 {
 #float-r {
   float: right;
   width: 35%;
-  padding: 30px 5px;
+  padding-top: 60px;
 }
 
 #float-l img {
   float: left;
   display: block;
-  width: 70%;
+  width: 50%;
+  padding-top: 10px;
 }
 
-ul li {
-  list-style: none;
-}
 .day-name {
   font-size: 25px;
   font-family: "Montserrat", sans-serif;
   font-weight: bold;
   line-height: 30px;
+  color: #68987f;
 }
 
 .today-datetime {
   font-size: 15px;
+  color: #371560;
+  padding-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
 }
 
-.quote {
-  font-size: 13px;
-  line-height: 5px;
-  font-family: "Playfair Display", serif;
-  font-weight: bold;
+.other-info {
+  font-size: 12px;
+  text-align: center;
+  line-height: 10px;
+  color: #371560;
+  font-family: "Montserrat", sans-serif;
 }
 .today-temp {
-  font-size: 26px;
+  font-size: 33px;
   font-family: "Gravitas One", cursive;
+  color: #1e0b44;
 }
 .unit {
-  font-size: 11px;
+  font-size: 12px;
+  color: #5c095a;
+  font-family: "Montserrat", sans-serif;
 }
 .main-description {
   width: 200px;
 }
-.other-info {
-  font-size: 10px;
-  padding-right: 20px;
+
+.quote {
+  font-size: 13px;
+  line-height: 16px;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  color: #371560;
+  text-align: center;
+  display: block;
+}
+
+form {
+  padding-bottom: 16px;
 }
 
 #city-input {
   width: 150px;
   border-radius: 20px;
+  font-size: 14px;
 }
 #search-input {
   background: #68987f;
   color: #1e0b44;
-  margin-left: 3px;
+  margin-left: 4px;
   border-radius: 20px;
   transition: all 200ms ease;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
 }
 #search-input:hover {
   color: #e7c120;
@@ -89,6 +112,7 @@ ul li {
 
 .order-first {
   margin: 20px 14px;
+  padding-bottom: 10px;
 }
 #days {
   border-right: 1px #68987f solid;
@@ -100,6 +124,7 @@ ul li {
   font-weight: bold;
   margin-top: 20px;
   font-family: "Montserrat", sans-serif;
+  color: #1e0b44;
 }
 .outcome {
   margin-top: 5px;
@@ -108,12 +133,15 @@ ul li {
 }
 .degree {
   font-size: 12px;
-  font-weight: bold;
+  color: #371560;
+  font-family: "Montserrat", sans-serif;
 }
 
 .bottom-text {
   text-align: center;
   font-size: 16px;
+  color: #68987f;
+  padding-top: 10px;
 }
 a {
   text-decoration: none;
@@ -123,6 +151,7 @@ a:hover {
   color: #f6d365;
 }
 .name {
-  font-family: "Dancing Script", cursive;
-  font-size: 19px;
+  font-size: 16px;
+  color: #1e0b44;
+  font-family: "Montserrat", sans-serif;
 }
