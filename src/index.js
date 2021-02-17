@@ -1,6 +1,5 @@
 
 function showcurrentDay(){ 
-
   let day = new Date();
   let weekDays = [
      "Sunday",
@@ -70,13 +69,15 @@ function showCurrenttemperature(response) {
   console.log(response.data);
   let currentCity = document.querySelector("#main-city");
   let currentDescription = document.querySelector(".description");
-  let currentTemperature = document.querySelector(".today-temp");
+  let currentTemperatureinCel = document.querySelector(".cel-temp");
+  let currentTemperatureinFah = document.querySelector(".fah-temp");
   let currentHumidity = document.querySelector(".current-humid");
   let currentWindspeed = document.querySelector(".current-wind");
   let currentDateTime = document.querySelector(".current-time");
   currentCity.innerHTML = response.data.name;
   currentDescription.innerHTML = response.data.weather[0].description;
-  currentTemperature.innerHTML = Math.round(response.data.main.temp);
+  currentTemperatureinCel.innerHTML = Math.round(response.data.main.temp);
+  currentTemperatureinFah.innerHTML = Math.round((response.data.main.temp *9)/5 + 32);
   currentHumidity.innerHTML = response.data.main.humidity;
   currentWindspeed.innerHTML = Math.round(response.data.wind.speed);
   currentDateTime.innerHTML = currentTimeformat(response.data.dt * 1000);
@@ -84,43 +85,43 @@ function showCurrenttemperature(response) {
   let currentMainIcon = document.querySelector(".main-description");
   let iconWeather = response.data.weather[0].icon;
   if (iconWeather === "01n") {
-    document.querySelector(".weather-quote").innerHTML = `I like the kind of people who get excited over the stars at night.`;
+    document.querySelector(".weather-quote").innerHTML = `"I like the kind of people who get excited over the stars at night."`;
     currentMainIcon.setAttribute("src", `image/01cs.png`);
     currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
   } else  if (iconWeather === "01d") {
-    document.querySelector(".weather-quote").innerHTML = ` Whenever you go, no matter the weather, always bring your own sunshine.`;
+    document.querySelector(".weather-quote").innerHTML = `"Whenever you go, no matter the weather, always bring your own sunshine."`;
     currentMainIcon.setAttribute("src", `image/02cs.png`);
     currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
   } else  if (iconWeather === "2d0" || iconWeather === "02n") {
-    document.querySelector(".weather-quote").innerHTML = ` Clouds are the sky's imagination.`;
+    document.querySelector(".weather-quote").innerHTML = ` "Clouds are the sky's imagination."`;
     currentMainIcon.setAttribute("src", `image/03c.png`);
     currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
   } else  if (iconWeather === "03d" || iconWeather === "03n") {
-    document.querySelector(".weather-quote").innerHTML = ` Clouds are the sky's imagination.`;
+    document.querySelector(".weather-quote").innerHTML = ` "Clouds are the sky's imagination."`;
     currentMainIcon.setAttribute("src", `image/04bc.png`);
     currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
   } else  if (iconWeather === "04d" || iconWeather === "04n") {
-    document.querySelector(".weather-quote").innerHTML = ` Clouds are the sky's imagination.`;
+    document.querySelector(".weather-quote").innerHTML = ` "Clouds are the sky's imagination."`;
     currentMainIcon.setAttribute("src", `image/04bc.png`);
     currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
   } else  if (iconWeather === "09d" || iconWeather === "09n") {
-    document.querySelector(".weather-quote").innerHTML = `Smell the rain.`;
+    document.querySelector(".weather-quote").innerHTML = `"Smell the rain."`;
     currentMainIcon.setAttribute("src", `image/07sr.png`);
     currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
   } else  if (iconWeather === "10d" || iconWeather === "10n") {
-    document.querySelector(".weather-quote").innerHTML = `Smell the rain.`;
+    document.querySelector(".weather-quote").innerHTML = `"Smell the rain."`;
     currentMainIcon.setAttribute("src", `image/06r.png`);
     currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
   } else  if (iconWeather === "11d" || iconWeather === "11n") {
-    document.querySelector(".weather-quote").innerHTML = `Lightning dances - Thunder applauds her.`;
+    document.querySelector(".weather-quote").innerHTML = `"Lightning dances - Thunder applauds her."`;
     currentMainIcon.setAttribute("src", `image/08t.png`);
     currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
   } else  if (iconWeather === "13d" || iconWeather === "13n") {
-    document.querySelector(".weather-quote").innerHTML = `Snowflakes are kisses from heaven.`;
-    currentMainIcon.setAttribute("src", `image/05s.png`);
+    document.querySelector(".weather-quote").innerHTML = `"Snowflakes are kisses from heaven."`;
+    currentMainIcon.setAttribute("src", `image/05sn.png`);
     currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
   } else  if (iconWeather === "50d" || iconWeather === "50n") {
-    document.querySelector(".weather-quote").innerHTML = `One should see that all appearance is like mist and fog.`;
+    document.querySelector(".weather-quote").innerHTML = `"One should see that all appearance is like mist and fog."`;
     currentMainIcon.setAttribute("src", `image/09f.png`);
     currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
   }
@@ -133,18 +134,29 @@ function searchCity(currentTypecity){
 
 }
 
-
 function currentCitysearch(event){
   event.preventDefault();
   let currentTypecity= document.querySelector("#city-input").value;
   searchCity(currentTypecity);
 
 }
-
-
-
-
 let searchForm = document.querySelector(".input-group");
 searchForm.addEventListener("submit", currentCitysearch);
+
+
+function clickPositionlocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(currentLocation);
+}
+
+function currentLocation(position){
+  let apiKey = "3312911a0b7ca102a3fa47c9257e12fa";
+  let currentlat = position.coords.latitude;
+  let currentlon = position.coords.longitude;
+  let positionUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentlat}&lon=${currentlon}&units=metric&appid=${apiKey}`;
+  axios.get(positionUrl).then(showCurrenttemperature);
+}
+let currentPosition = document.querySelector("#current-input");
+currentPosition.addEventListener("click", clickPositionlocation);
 
 searchCity("Los Angeles");
