@@ -51,7 +51,8 @@ h1 {
   color: #68987f;
 }
 
-.today-datetime {
+.current-date,
+.current-time {
   font-size: 15px;
   color: #371560;
   padding-bottom: 20px;
@@ -63,6 +64,8 @@ h1 {
   color: #371560;
   font-size: 14px;
   font-weight: bold;
+}
+.description:first-letter {
   text-transform: capitalize;
 }
 
