@@ -80,9 +80,55 @@ function showCurrenttemperature(response) {
   currentHumidity.innerHTML = response.data.main.humidity;
   currentWindspeed.innerHTML = Math.round(response.data.wind.speed);
   currentDateTime.innerHTML = currentTimeformat(response.data.dt * 1000);
+
+  let currentMainIcon = document.querySelector(".main-description");
+  let iconWeather = response.data.weather[0].icon;
+  if (iconWeather === "01n") {
+    document.querySelector(".weather-quote").innerHTML = `I like the kind of people who get excited over the stars at night.`;
+    currentMainIcon.setAttribute("src", `image/01cs.png`);
+    currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
+  } else  if (iconWeather === "01d") {
+    document.querySelector(".weather-quote").innerHTML = ` Whenever you go, no matter the weather, always bring your own sunshine.`;
+    currentMainIcon.setAttribute("src", `image/02cs.png`);
+    currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
+  } else  if (iconWeather === "2d0" || iconWeather === "02n") {
+    document.querySelector(".weather-quote").innerHTML = ` Clouds are the sky's imagination.`;
+    currentMainIcon.setAttribute("src", `image/03c.png`);
+    currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
+  } else  if (iconWeather === "03d" || iconWeather === "03n") {
+    document.querySelector(".weather-quote").innerHTML = ` Clouds are the sky's imagination.`;
+    currentMainIcon.setAttribute("src", `image/04bc.png`);
+    currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
+  } else  if (iconWeather === "04d" || iconWeather === "04n") {
+    document.querySelector(".weather-quote").innerHTML = ` Clouds are the sky's imagination.`;
+    currentMainIcon.setAttribute("src", `image/04bc.png`);
+    currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
+  } else  if (iconWeather === "09d" || iconWeather === "09n") {
+    document.querySelector(".weather-quote").innerHTML = `Smell the rain.`;
+    currentMainIcon.setAttribute("src", `image/07sr.png`);
+    currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
+  } else  if (iconWeather === "10d" || iconWeather === "10n") {
+    document.querySelector(".weather-quote").innerHTML = `Smell the rain.`;
+    currentMainIcon.setAttribute("src", `image/06r.png`);
+    currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
+  } else  if (iconWeather === "11d" || iconWeather === "11n") {
+    document.querySelector(".weather-quote").innerHTML = `Lightning dances - Thunder applauds her.`;
+    currentMainIcon.setAttribute("src", `image/08t.png`);
+    currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
+  } else  if (iconWeather === "13d" || iconWeather === "13n") {
+    document.querySelector(".weather-quote").innerHTML = `Snowflakes are kisses from heaven.`;
+    currentMainIcon.setAttribute("src", `image/05s.png`);
+    currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
+  } else  if (iconWeather === "50d" || iconWeather === "50n") {
+    document.querySelector(".weather-quote").innerHTML = `One should see that all appearance is like mist and fog.`;
+    currentMainIcon.setAttribute("src", `image/09f.png`);
+    currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);   
+  }
+
 }
 
+let city = "New York";
 let apiKey = "3312911a0b7ca102a3fa47c9257e12fa";
-let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=New York&appid=${apiKey}&units=metric`;
+let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(showCurrenttemperature);
