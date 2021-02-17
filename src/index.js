@@ -126,9 +126,25 @@ function showCurrenttemperature(response) {
   }
 
 }
+function searchCity(currentTypecity){
+  let apiKey = "3312911a0b7ca102a3fa47c9257e12fa";
+  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${currentTypecity}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showCurrenttemperature);
 
-let city = "New York";
-let apiKey = "3312911a0b7ca102a3fa47c9257e12fa";
-let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+}
 
-axios.get(apiUrl).then(showCurrenttemperature);
+
+function currentCitysearch(event){
+  event.preventDefault();
+  let currentTypecity= document.querySelector("#city-input").value;
+  searchCity(currentTypecity);
+
+}
+
+
+
+
+let searchForm = document.querySelector(".input-group");
+searchForm.addEventListener("submit", currentCitysearch);
+
+searchCity("Los Angeles");
