@@ -148,6 +148,7 @@ form {
 .order-first {
   margin: 20px 0;
   padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 #days {
   border-right: 1px #68987f solid;

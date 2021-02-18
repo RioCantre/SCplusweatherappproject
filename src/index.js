@@ -1,5 +1,5 @@
 
-function showcurrentDay(){ 
+function showcurrentDay(data){ 
   let day = new Date();
   let weekDays = [
      "Sunday",
@@ -10,15 +10,16 @@ function showcurrentDay(){
      "Friday", 
      "Saturday"]
 
-  let dayToday = weekDays[day.getDay()];
+  let dayToday = weekDays[day.getUTCDay()];
   return dayToday;
 
  }
   let currentDay = document.querySelector(".day-name");
   currentDay.innerHTML = showcurrentDay();
 
-function showDateformat(date) {
-  let currentDate = date.getDate(); 
+function showDateformat() {
+  let day = new Date();
+  let currentDate = day.getUTCDate(); 
   
   let completeMonths = [
     "January", 
@@ -33,8 +34,8 @@ function showDateformat(date) {
     "November",
     "December"]
 
-  let currentMonth = completeMonths[date.getMonth()];
-  let currentYear = date.getFullYear();
+  let currentMonth = completeMonths[day.getUTCMonth()];
+  let currentYear = day.getUTCFullYear();
   if (currentDate < 10) {
       currentDate = `0${currentDate}`;
   }
@@ -43,18 +44,18 @@ function showDateformat(date) {
   return  currentDateToday;
   }
 currentDateToday = document.querySelector(".current-date");
-currentDateToday.innerHTML = showDateformat(new Date());
+currentDateToday.innerHTML = showDateformat();
   
 
 function currentTimeformat(timestamp) {
   let date = new Date(timestamp);
     
-  let currentHours = date.getHours();
+  let currentHours = date.getUTCHours();
   if (currentHours < 10) {
       currentHours = `0${currentHours}`;
   } 
     
-  let currentMinutes = date.getMinutes();
+  let currentMinutes = date.getUTCMinutes();
   if (currentMinutes < 10) {
       currentMinutes = `0${currentMinutes}`;
   } 
@@ -65,8 +66,10 @@ function currentTimeformat(timestamp) {
 }
 
 
+
+
 function showCurrenttemperature(response) {
-  // console.log(response.data);
+  console.log(response.data);
   let currentCity = document.querySelector("#main-city");
   let currentDescription = document.querySelector(".description");
   let currentTemperatureinCel = document.querySelector(".cel-temp");
@@ -78,10 +81,11 @@ function showCurrenttemperature(response) {
   let timezone = response.data.timezone;
   let showtimeStamp = timestamp + timezone;
   let currenttimeStamp = showtimeStamp * 1000;
-  // console.log(timestamp);
   // console.log(new Date());
 
 
+
+  
 
   currentCity.innerHTML = response.data.name;
   currentDescription.innerHTML = response.data.weather[0].description;
@@ -95,7 +99,7 @@ function showCurrenttemperature(response) {
   let apiKey = "3312911a0b7ca102a3fa47c9257e12fa";
   let lat = response.data.coord.lat;
   let lon = response.data.coord.lon;
-  let exclude = "current,hourly,alert";
+  let exclude = "current,minutely,hourly,alerts";
   let apiforecastdailyUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&appid=${apiKey}&units=metric`;
   axios.get(apiforecastdailyUrl).then(showdailyForecast);
 
@@ -109,7 +113,8 @@ function showCurrenttemperature(response) {
     document.querySelector(".weather-quote").innerHTML = `"I like the kind of people who get excited over the stars at night."`;
     currentMainIcon.setAttribute("src", `image/01cs.png`);
     currentMainIcon.setAttribute("alt",  response.data.weather[0].icon);
-    document.querySelector("#background").classList.add("weather1").classList.remove("weather2","weather3");
+    document.querySelector("#background").classList.add("weather1")
+    document.querySelector("#background").classList.remove("weather2","weather3");
   } else  if (iconWeather === "01d") {
     document.querySelector(".weather-quote").innerHTML = `"Wherever you go, no matter the weather, always bring your own sunshine."`;
     currentMainIcon.setAttribute("src", `image/02cs.png`);
@@ -181,7 +186,7 @@ function showdailyForecast(response) {
   let currentForecast = document.querySelector("#days");
   let forecastDaily = null;
   currentForecast.innerHTML = null;
-  console.log(response.data);
+  // console.log(response.data);
   
   for (let index = 1; index < 7; index ++) {
     forecastDaily = response.data.daily[index];
@@ -229,8 +234,8 @@ function searchCity(currentTypecity){
   let apicurrentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${currentTypecity}&appid=${apiKey}&units=metric`;
   axios.get(apicurrentUrl).then(showCurrenttemperature);
   
-  let apiforecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${currentTypecity}&appid=${apiKey}&units=metric`;
-  axios.get(apiforecastUrl).then(showdailyForecast);
+  // let apiforecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${currentTypecity}&appid=${apiKey}&units=metric`;
+  // axios.get(apiforecastUrl).then(showdailyForecast);
 }
 
 function currentCitysearch(event){
