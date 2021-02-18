@@ -1,6 +1,6 @@
 
-function showcurrentDay(data){ 
-  let day = new Date();
+function showcurrentDay(timestamp){ 
+  let day = new Date(timestamp);
   let weekDays = [
      "Sunday",
      "Monday", 
@@ -10,16 +10,14 @@ function showcurrentDay(data){
      "Friday", 
      "Saturday"]
 
-  let dayToday = weekDays[day.getUTCDay()];
+  let dayToday = weekDays[day.getDay()];
   return dayToday;
 
  }
-  let currentDay = document.querySelector(".day-name");
-  currentDay.innerHTML = showcurrentDay();
 
-function showDateformat() {
-  let day = new Date();
-  let currentDate = day.getUTCDate(); 
+function showDateformat(timestamp) {
+  let day = new Date(timestamp);
+  let currentDate = day.getDate(); 
   
   let completeMonths = [
     "January", 
@@ -34,18 +32,16 @@ function showDateformat() {
     "November",
     "December"]
 
-  let currentMonth = completeMonths[day.getUTCMonth()];
-  let currentYear = day.getUTCFullYear();
+  let currentMonth = completeMonths[day.getMonth()];
+  let currentYear = day.getFullYear();
   if (currentDate < 10) {
       currentDate = `0${currentDate}`;
   }
     
-  let currentDateToday = `${currentMonth} ${currentDate}, ${currentYear}`;
-  return  currentDateToday;
+  let fullDateToday = `${currentMonth} ${currentDate}, ${currentYear}`;
+  return  fullDateToday;
   }
-currentDateToday = document.querySelector(".current-date");
-currentDateToday.innerHTML = showDateformat();
-  
+
 
 function currentTimeformat(timestamp) {
   let date = new Date(timestamp);
@@ -60,7 +56,7 @@ function currentTimeformat(timestamp) {
       currentMinutes = `0${currentMinutes}`;
   } 
 
-  let currentTime = `${currentHours}: ${currentMinutes}`;
+  let currentTime = `${currentHours}: ${currentMinutes} `;
   return currentTime;
       
 }
@@ -69,24 +65,29 @@ function currentTimeformat(timestamp) {
 
 
 function showCurrenttemperature(response) {
-  console.log(response.data);
+  // console.log(response.data);
+
   let currentCity = document.querySelector("#main-city");
   let currentDescription = document.querySelector(".description");
   let currentTemperatureinCel = document.querySelector(".cel-temp");
   let currentTemperatureinFah = document.querySelector(".fah-temp");
   let currentHumidity = document.querySelector(".current-humid");
   let currentWindspeed = document.querySelector(".current-wind");
+
   let currentDateTime = document.querySelector(".current-time");
   let timestamp = response.data.dt;
   let timezone = response.data.timezone;
   let showtimeStamp = timestamp + timezone;
   let currenttimeStamp = showtimeStamp * 1000;
-  // console.log(new Date());
 
 
-
+  let  currentDateToday = document.querySelector(".current-date");
+  let currentDay = document.querySelector(".day-name");
   
-
+  
+  
+  
+  
   currentCity.innerHTML = response.data.name;
   currentDescription.innerHTML = response.data.weather[0].description;
   currentTemperatureinCel.innerHTML = Math.round(response.data.main.temp);
@@ -94,6 +95,8 @@ function showCurrenttemperature(response) {
   currentHumidity.innerHTML = response.data.main.humidity;
   currentWindspeed.innerHTML = Math.round(response.data.wind.speed);
   currentDateTime.innerHTML = currentTimeformat(currenttimeStamp);
+  currentDateToday.innerHTML = showDateformat(currenttimeStamp);
+  currentDay.innerHTML = showcurrentDay(currenttimeStamp);
 
 
   let apiKey = "3312911a0b7ca102a3fa47c9257e12fa";
