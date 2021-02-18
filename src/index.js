@@ -95,7 +95,7 @@ function showCurrenttemperature(response) {
   let apiKey = "3312911a0b7ca102a3fa47c9257e12fa";
   let lat = response.data.coord.lat;
   let lon = response.data.coord.lon;
-  let exclude = "current,alert";
+  let exclude = "current,hourly,alert";
   let apiforecastdailyUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&appid=${apiKey}&units=metric`;
   axios.get(apiforecastdailyUrl).then(showdailyForecast);
 
@@ -183,7 +183,7 @@ function showdailyForecast(response) {
   currentForecast.innerHTML = null;
   console.log(response.data);
   
-  for (index = 1; index < 7; index ++) {
+  for (let index = 1; index < 7; index ++) {
     forecastDaily = response.data.daily[index];
     let forecast = forecastDays(forecastDaily.dt);
     let dailyIcon = forecastDaily.weather[0].icon;
