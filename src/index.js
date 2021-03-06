@@ -1,5 +1,5 @@
 
-function showcurrentDay(timestamp){ 
+function showCurrentDay(timestamp){ 
   let day = new Date(timestamp);
   let weekDays = [
      "Sunday",
@@ -15,7 +15,7 @@ function showcurrentDay(timestamp){
 
  }
 
-function showDateformat(timestamp) {
+function showDateFormat(timestamp) {
   let day = new Date(timestamp);
   let currentDate = day.getDate(); 
   
@@ -43,7 +43,7 @@ function showDateformat(timestamp) {
   }
 
 
-function currentTimeformat(timestamp) {
+function currentTimeFormat(timestamp) {
   let date = new Date(timestamp);
     
   let currentHours = date.getUTCHours();
@@ -64,21 +64,21 @@ function currentTimeformat(timestamp) {
 
 
 
-function showCurrenttemperature(response) {
+function showCurrentTemperature(response) {
   // console.log(response.data);
 
   let currentCity = document.querySelector("#main-city");
   let currentDescription = document.querySelector(".description");
-  let currentTemperatureinCel = document.querySelector(".cel-temp");
-  let currentTemperatureinFah = document.querySelector(".fah-temp");
+  let currentTemperatureInCel = document.querySelector(".cel-temp");
+  let currentTemperatureInFah = document.querySelector(".fah-temp");
   let currentHumidity = document.querySelector(".current-humid");
   let currentWindspeed = document.querySelector(".current-wind");
 
   let currentDateTime = document.querySelector(".current-time");
-  let timestamp = response.data.dt;
-  let timezone = response.data.timezone;
-  let showtimeStamp = timestamp + timezone;
-  let currenttimeStamp = showtimeStamp * 1000;
+  let timeStamp = response.data.dt;
+  let timeZone = response.data.timezone;
+  let showTimeStamp = timeStamp + timeZone;
+  let currentTimeStamp = showTimeStamp * 1000;
 
 
   let  currentDateToday = document.querySelector(".current-date");
@@ -90,21 +90,21 @@ function showCurrenttemperature(response) {
   
   currentCity.innerHTML = response.data.name;
   currentDescription.innerHTML = response.data.weather[0].description;
-  currentTemperatureinCel.innerHTML = Math.round(response.data.main.temp);
-  currentTemperatureinFah.innerHTML = Math.round((response.data.main.temp *9)/5 + 32);
+  currentTemperatureInCel.innerHTML = Math.round(response.data.main.temp);
+  currentTemperatureInFah.innerHTML = Math.round((response.data.main.temp *9)/5 + 32);
   currentHumidity.innerHTML = response.data.main.humidity;
   currentWindspeed.innerHTML = Math.round(response.data.wind.speed);
-  currentDateTime.innerHTML = currentTimeformat(currenttimeStamp);
-  currentDateToday.innerHTML = showDateformat(currenttimeStamp);
-  currentDay.innerHTML = showcurrentDay(currenttimeStamp);
+  currentDateTime.innerHTML = currentTimeFormat(currentTimeStamp);
+  currentDateToday.innerHTML = showDateFormat(currentTimeStamp);
+  currentDay.innerHTML = showCurrentDay(currentTimeStamp);
 
 
   let apiKey = "3312911a0b7ca102a3fa47c9257e12fa";
   let lat = response.data.coord.lat;
   let lon = response.data.coord.lon;
   let exclude = "current,minutely,hourly,alerts";
-  let apiforecastdailyUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&appid=${apiKey}&units=metric`;
-  axios.get(apiforecastdailyUrl).then(showdailyForecast);
+  let apiForecastDailyUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=${exclude}&appid=${apiKey}&units=metric`;
+  axios.get(apiForecastDailyUrl).then(showDailyForecast);
 
   
 
@@ -179,13 +179,13 @@ function showCurrenttemperature(response) {
 function forecastDays(timestamp) {
   let forecastDate = new Date(timestamp * 1000);
   let day = forecastDate.getDay();
-  let forecastDaynames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  return forecastDaynames[day];
+  let forecastDayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  return forecastDayNames[day];
 }
 
 
 
-function showdailyForecast(response) {
+function showDailyForecast(response) {
   let currentForecast = document.querySelector("#days");
   let forecastDaily = null;
   currentForecast.innerHTML = null;
@@ -232,38 +232,38 @@ function showdailyForecast(response) {
   }
 }
 
-function searchCity(currentTypecity){
+function searchCity(currentTypeCity){
   let apiKey = "3312911a0b7ca102a3fa47c9257e12fa";
-  let apicurrentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${currentTypecity}&appid=${apiKey}&units=metric`;
-  axios.get(apicurrentUrl).then(showCurrenttemperature);
+  let apiCurrentUrl = `https://api.openweathermap.org/data/2.5/weather?q=${currentTypeCity}&appid=${apiKey}&units=metric`;
+  axios.get(apiCurrentUrl).then(showCurrentTemperature);
   
   // let apiforecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${currentTypecity}&appid=${apiKey}&units=metric`;
   // axios.get(apiforecastUrl).then(showdailyForecast);
 }
 
-function currentCitysearch(event){
+function currentCitySearch(event){
   event.preventDefault();
-  let currentTypecity= document.querySelector("#city-input").value;
-  searchCity(currentTypecity);
+  let currentTypeCity = document.querySelector("#city-input").value;
+  searchCity(currentTypeCity);
 
 }
 let searchForm = document.querySelector(".input-group");
-searchForm.addEventListener("submit", currentCitysearch);
+searchForm.addEventListener("submit", currentCitySearch);
 
 
-function clickPositionlocation(event) {
+function clickPositionLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(currentLocation);
 }
 
 function currentLocation(position){
   let apiKey = "3312911a0b7ca102a3fa47c9257e12fa";
-  let currentlat = position.coords.latitude;
-  let currentlon = position.coords.longitude;
-  let positionUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentlat}&lon=${currentlon}&units=metric&appid=${apiKey}`;
-  axios.get(positionUrl).then(showCurrenttemperature);
+  let currentLat = position.coords.latitude;
+  let currentLon = position.coords.longitude;
+  let positionUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLat}&lon=${currentLon}&units=metric&appid=${apiKey}`;
+  axios.get(positionUrl).then(showCurrentTemperature);
 }
 let currentPosition = document.querySelector("#current-input");
-currentPosition.addEventListener("click", clickPositionlocation);
+currentPosition.addEventListener("click", clickPositionLocation);
 
 searchCity("New York");
