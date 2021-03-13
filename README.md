@@ -1,3 +1,3 @@
 # SCplusweatherappproject
 
-https://www.shecodes.io/workshops/shecodes-plus-45-0/projects/250480
+https://agitated-lumiere-91fd41.netlify.app/
