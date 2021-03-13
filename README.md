@@ -1,3 +1,3 @@
 # SCplusweatherappproject
 
-https://agitated-lumiere-91fd41.netlify.app/
+https://thirsty-hypatia-d3ada9.netlify.app/
