@@ -1,3 +1,2 @@
 # SCplusweatherappproject
-
-https://thirsty-hypatia-d3ada9.netlify.app/
+The final project I made with the 6 week course of Shecodes plus.
