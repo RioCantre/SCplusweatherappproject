@@ -6,7 +6,7 @@ body {
 .weather1,
 .weather2,
 .weather3 {
-  /* background-image: url(/image/bg.png); */
+  /* background-image: url(../image/bg.png); */
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 25px;
@@ -17,13 +17,13 @@ body {
 }
 
 .weather1 {
-  background-image: url(/image/bg.png);
+  background-image: url(../image/bg.png);
 }
 .weather2 {
-  background-image: url(/image/bg1.png);
+  background-image: url(../image/bg1.png);
 }
 .weather3 {
-  background-image: url(/image/bg2.png);
+  background-image: url(../image/bg2.png);
 }
 .order-last {
   text-align: center;
